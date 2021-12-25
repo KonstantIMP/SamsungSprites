@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_margin="15dp">
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Kimp.FindMe.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:strokeWidth="0.5dp"
+        app:strokeColor="@color/design_default_color_primary">
+
+        <LinearLayout
+            android:id="@+id/card_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/speed_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/speed_msg" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/speed_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@android:string/untitled" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/hero_msg" />
+
+            <Spinner
+                android:id="@+id/hero_cb"
+                style="@style/Widget.AppCompat.Spinner.DropDown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@android:string/untitled"
+                android:dropDownWidth="match_parent"
+                android:entries="@array/heroes"
+                android:minHeight="48dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>
+
+

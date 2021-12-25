@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="ShapeAppearanceOverlay.Kimp.CardView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">15dp</item>
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerSizeBottomRight">15dp</item>
+        <item name="cornerSizeBottomLeft">15dp</item>
+    </style>
+
+    <style name="Kimp.FindMe.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Kimp.CardView</item>
+    </style>
+</resources>

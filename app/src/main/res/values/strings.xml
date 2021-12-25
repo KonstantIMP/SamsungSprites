@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">KSprites</string>
+
+    <string name="speed_msg">Speed:</string>
+    <string name="hero_msg">Hero:</string>
+
+    <string-array name="heroes">
+        <item>Cat</item>
+        <item>Bat</item>
+        <item>Dodo</item>
+        <item>Chicken</item>
+    </string-array>
+</resources>
