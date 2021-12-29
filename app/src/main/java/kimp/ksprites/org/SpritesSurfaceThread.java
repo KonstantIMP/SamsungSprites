@@ -39,6 +39,7 @@ public class SpritesSurfaceThread extends Thread {
 
             if (currentTime - timeDelay >= DRAW_DELAY_MILLIS) {
                 Canvas canvas = surfaceHolder.lockCanvas();
+                if (canvas == null) return;
                 synchronized (surfaceHolder) {
                     surfaceView.draw(canvas);
                 }

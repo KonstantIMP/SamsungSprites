@@ -4,11 +4,13 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.util.Log;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
 
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * Drawable object for hero show
@@ -24,6 +26,7 @@ public class Sprite {
     private Pair<Double, Double> speed;
 
     private double speedMultiply = 0.5;
+    private double scaleFactor = 1.0;
 
     public static final int SPRITE_SPEED_DPS = 30;
 
@@ -56,6 +59,7 @@ public class Sprite {
         }
 
         currentPosition = new Pair<>(view.getWidth() / 2.0, view.getHeight() / 2.0);
+        //currentPosition = new Pair<>(25.0, 25.0);
         speed = new Pair<>(0.0, 0.0);
         targetPosition = currentPosition;
     }
@@ -77,8 +81,13 @@ public class Sprite {
         else if (speed.first < 0 && Math.abs(speed.first) > Math.abs(speed.second)) currentDirection = Direction.DIRECTION_LEFT;
         else currentDirection = Direction.DIRECTION_UP;
 
+        if (iteration % 20 == 19) {
+            Random random = new Random();
+            scaleFactor = Math.abs(random.nextGaussian());
+        }
+
         Rect [] animation = animationRows.get(currentDirection.rowNumber);
-        Rect source = new Rect(currentPosition.first.intValue(), currentPosition.second.intValue(), currentPosition.first.intValue() + spriteWidth, currentPosition.second.intValue() + spriteHeight);
+        Rect source = new Rect(currentPosition.first.intValue(), currentPosition.second.intValue(), currentPosition.first.intValue() + (int)(spriteWidth * scaleFactor), currentPosition.second.intValue() + (int)(scaleFactor * spriteHeight));
 
         canvas.drawBitmap(spritesTexture, animation[iteration % animation.length], source, paint);
     }
@@ -102,6 +111,7 @@ public class Sprite {
     private void calculateSpeed() {
         speed = new Pair<>(speedMultiply * SPRITE_SPEED_DPS * (targetPosition.first - currentPosition.first) / surfaceView.getWidth(),
                 speedMultiply * SPRITE_SPEED_DPS * (targetPosition.second - currentPosition.second) / surfaceView.getHeight());
+        if (surfaceView.getHeight() == 0 || surfaceView.getWidth() == 0) speed = new Pair<>(0.0, 0.0);
     }
 
     private void checkWall() {

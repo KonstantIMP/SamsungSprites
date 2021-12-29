@@ -43,9 +43,7 @@ public class SpritesSurfaceView extends SurfaceView implements SurfaceHolder.Cal
     public void changeTexture(int resourceId) {
         Bitmap texture = BitmapFactory.decodeResource(getResources(), resourceId);
 
-        surfaceDestroyed(getHolder());
         sprite = new Sprite(this, texture);
-        surfaceCreated(getHolder());
     }
 
     /**

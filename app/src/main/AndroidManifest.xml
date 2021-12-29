@@ -11,9 +11,7 @@
         android:theme="@style/Theme.KSprites">
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:orientation="horizontal">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
